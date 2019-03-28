@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css?family=Lato')
+
+@mixin transition
+  transition: .4s
+
+$panelWidth: 360px
+$panelHeight: 70px
+
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+body
+  background: #ddd
+  color: #333
+  font-family: 'Lato', sans-serif
+  .container
+    min-height: 100vh
+    width: 70%
+    margin: auto
+    padding: 40px 15px
+    background: #f5f5f5
+    form
+      input[type=number]
+        font-size: $panelHeight/1.6
+        width: $panelWidth
+        height: $panelHeight
+        text-align: center
+      .radioButtons
+        display: flex
+        flex-direction: row
+        input[type=radio]
+          display: none
+        .unitButton
+          $height: $panelHeight
+          background: #666
+          color: #ddd
+          width: $panelWidth/2
+          height: $height
+          line-height: $height
+          text-align: center
+          cursor: pointer
+          @include transition
+        input[type=radio]:checked ~ .unitButton
+            background: red
+            color: white
+      button[type=submit]
+        width: $panelWidth
+        height: $panelHeight
+        line-height: $panelHeight
+        font-size: $panelHeight/1.8
+        color: white
+        text-align: center
+        background: #ddd
+        border: none
+        cursor: pointer
+        @include transition
+        &:hover
+          background: #f2b44a
+
+    .display
+      width: $panelWidth
+      height: $panelHeight
+      line-height: $panelHeight
+      text-align: center
+      text-transform: capitalize
+      font-size: $panelHeight/2
+      background: white
+      border: 1px solid #ddd
