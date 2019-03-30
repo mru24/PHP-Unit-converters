@@ -2,7 +2,8 @@
 
 if(isset($_POST['convert'])) {
   if(!empty($_POST['unit']) && !empty($_POST['value'])) {
-    $value = preg_replace('/[^0-9]/', '', $_POST['value']);
+    // $value = preg_replace('/[^0-9]/', '', $_POST['value']);
+    $value = $_POST['value'];
     $resultUnit = $_POST['unit'];
     $result = $conv->temperature($resultUnit, $value);
   } else {
@@ -46,7 +47,7 @@ if(isset($_POST['convert'])) {
     <?php
 
     if(!empty($result)) {
-      echo $result;
+      echo round($result, 1);
     } else {
       if(isset($error)) {
         echo $error;

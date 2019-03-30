@@ -13,9 +13,31 @@ require 'inc/conversions.php';
   <link rel="stylesheet" href="css/style.min.css">
 </head>
 <body>
-  
+
+
   <div class="container">
-    <?php include 'inc/temperature.php'; ?>
+    <?php if(isset($_GET['id'])) {
+
+      switch ($_GET['id']) {
+        case 'temp':
+          include 'inc/temperature.php';
+          include 'inc/nav.php';
+          break;
+
+        default:
+        ?>
+        <div class="error">
+          <h1>Woops.. Something went wrong direction.</h1>
+          <?php
+          include 'inc/nav.php';
+          ?>
+        </div>
+        <?php
+          break;
+      }
+    } else {
+      include 'inc/nav.php';
+    } ?>
   </div>
 
 </body>

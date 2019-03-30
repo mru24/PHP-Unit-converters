@@ -1,9 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Lato')
 
+@mixin small
+  @media (max-width: 600px)
+    @content
+
+@mixin xsmall
+  @media (max-width: 400px)
+    @content
+
 @mixin transition
   transition: .4s
 
-$panelWidth: 360px
+$panelWidth: 320px
 $panelHeight: 70px
 
 $border: 1px solid #ddd
@@ -27,6 +35,9 @@ body
     margin: auto
     padding: 40px 15px
     background: #f5f5f5
+    @include small
+      width: 100%
+      padding: 5px
     form
       input[type=number]
         font-size: $panelHeight/1.6
@@ -67,10 +78,11 @@ body
 
     .display
       width: $panelWidth
-      height: $panelHeight
+      height: auto
+      min-height: $panelHeight
       line-height: $panelHeight
       text-align: center
       text-transform: capitalize
-      font-size: $panelHeight/2
+      font-size: $panelHeight/2.5
       background: white
       border: 1px solid #ddd

@@ -12,7 +12,7 @@ body {
 }
 
 body h2 {
-  width: 360px;
+  width: 320px;
   text-align: center;
   margin-bottom: 10px;
   border-bottom: 1px solid #ddd;
@@ -26,9 +26,16 @@ body .container {
   background: #f5f5f5;
 }
 
+@media (max-width: 600px) {
+  body .container {
+    width: 100%;
+    padding: 5px;
+  }
+}
+
 body .container form input[type=number] {
   font-size: 43.75px;
-  width: 360px;
+  width: 320px;
   height: 70px;
   text-align: center;
 }
@@ -45,7 +52,7 @@ body .container form .radioButtons input[type=radio] {
 body .container form .radioButtons .unitButton {
   background: #666;
   color: #ddd;
-  width: 180px;
+  width: 160px;
   height: 70px;
   line-height: 70px;
   text-align: center;
@@ -59,7 +66,7 @@ body .container form .radioButtons input[type=radio]:checked ~ .unitButton {
 }
 
 body .container form button[type=submit] {
-  width: 360px;
+  width: 320px;
   height: 70px;
   line-height: 70px;
   font-size: 38.88889px;
@@ -76,12 +83,13 @@ body .container form button[type=submit]:hover {
 }
 
 body .container .display {
-  width: 360px;
-  height: 70px;
+  width: 320px;
+  height: auto;
+  min-height: 70px;
   line-height: 70px;
   text-align: center;
   text-transform: capitalize;
-  font-size: 35px;
+  font-size: 28px;
   background: white;
   border: 1px solid #ddd;
 }
