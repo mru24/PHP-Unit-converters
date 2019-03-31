@@ -21,7 +21,7 @@ body {
 }
 
 body h2 {
-  width: 320px;
+  width: 340px;
   margin-bottom: 10px;
   border-bottom: 1px solid #ddd;
   text-transform: capitalize;
@@ -29,7 +29,7 @@ body h2 {
 
 body .container {
   min-height: 100vh;
-  width: 70%;
+  width: 340px;
   margin: auto;
   padding: 40px 15px;
   background: #f5f5f5;
@@ -43,20 +43,20 @@ body .container {
 }
 
 body .container form input[type=number] {
-  font-size: 43.75px;
-  width: 320px;
-  height: 70px;
+  font-size: 37.5px;
+  width: 100%;
+  height: 60px;
   text-align: center;
 }
 
 body .container form .units {
-  width: 320px;
+  width: 100%;
   clear: both;
 }
 
 body .container form .units .unit1, body .container form .units .unit2 {
   float: left;
-  width: 160px;
+  width: 50%;
   border: 1px solid #ddd;
   text-transform: capitalize;
   text-align: center;
@@ -68,13 +68,19 @@ body .container form .units .unit1 label input[type=radio], body .container form
 
 body .container form .units .unit1 label .unitButton, body .container form .units .unit2 label .unitButton {
   background: #666;
-  color: #ddd;
-  width: 160px;
-  height: 70px;
-  line-height: 70px;
+  color: #eee;
+  width: 100%;
+  height: 33.33333px;
+  line-height: 33.33333px;
   text-align: center;
   cursor: pointer;
   transition: .4s;
+}
+
+body .container form .units .unit1 label .unitButton:hover, body .container form .units .unit2 label .unitButton:hover {
+  background: #bbb;
+  color: #222;
+  text-transform: uppercase;
 }
 
 body .container form .units .unit1 label input[type=radio]:checked ~ .unitButton, body .container form .units .unit2 label input[type=radio]:checked ~ .unitButton {
@@ -82,31 +88,11 @@ body .container form .units .unit1 label input[type=radio]:checked ~ .unitButton
   color: white;
 }
 
-body .container form .units input[type=radio] {
-  display: none;
-}
-
-body .container form .units .unitButton {
-  background: #666;
-  color: #ddd;
-  width: 160px;
-  height: 70px;
-  line-height: 70px;
-  text-align: center;
-  cursor: pointer;
-  transition: .4s;
-}
-
-body .container form .units input[type=radio]:checked ~ .unitButton {
-  background: red;
-  color: white;
-}
-
 body .container form button[type=submit] {
-  width: 320px;
-  height: 70px;
-  line-height: 70px;
-  font-size: 38.88889px;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  font-size: 33.33333px;
   color: white;
   text-align: center;
   background: #ddd;
@@ -120,13 +106,33 @@ body .container form button[type=submit]:hover {
 }
 
 body .container .display {
-  width: 320px;
+  width: 100%;
   height: auto;
-  min-height: 70px;
-  line-height: 70px;
+  line-height: 60px;
   text-align: center;
   text-transform: capitalize;
-  font-size: 28px;
+  font-size: 24px;
   background: white;
   border: 1px solid #ddd;
+  transition: .4s;
+}
+
+.nav a {
+  display: block;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  transition: .4s;
+}
+
+.nav a:hover {
+  border: 1px solid #ddd;
+  box-shadow: 0 0 15px #666;
+}
+
+.nav a i {
+  width: 60px;
+  text-align: center;
+  color: red;
+  font-size: 1.4em;
 }

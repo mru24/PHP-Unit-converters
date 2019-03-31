@@ -23,83 +23,17 @@ if(isset($_POST['convert'])) {
   </h2>
   <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
 
+<!-- INPUT FIELD -->
     <input type="number" name="value" step="0.001" value="<?php echo $value; ?>">
+<!-- INPUT FIELD END -->
 
-    <div class="units">
-      <div class="unit1">
-        <label>
-          <input type="radio" name="unit1" value="<?php echo $unit1 ?>"
-            <?php if(isset($resultUnit1) && $resultUnit1 == $unit1) {
-              echo 'checked="checked"';
-            } ?>>
-          <div class="unitButton">
-            <?php echo $unit1; ?>
-          </div>
-        </label>
-
-        <label>
-          <input type="radio" name="unit1" value="<?php echo $unit2; ?>"
-          <?php if(isset($resultUnit1) && $resultUnit1 == $unit2) {
-            echo 'checked="checked"';
-          } ?>>
-          <div class="unitButton">
-            <?php echo $unit2; ?>
-          </div>
-        </label>
-
-        <label>
-          <input type="radio" name="unit1" value="<?php echo $unit3; ?>"
-          <?php if(isset($resultUnit1) && $resultUnit1 == $unit3) {
-            echo 'checked="checked"';
-          } ?>>
-          <div class="unitButton">
-            <?php echo $unit3; ?>
-          </div>
-        </label>
-      </div>
-      <div class="unit2">
-        <label>
-          <input type="radio" name="unit2" value="<?php echo $unit1; ?>"
-            <?php if(isset($resultUnit2) && $resultUnit2 == $unit1) {
-              echo 'checked="checked"';
-            } ?>>
-          <div class="unitButton">
-            <?php echo $unit1; ?>
-          </div>
-        </label>
-
-        <label>
-          <input type="radio" name="unit2" value="<?php echo $unit2 ?>"
-          <?php if(isset($resultUnit2) && $resultUnit2 == $unit2) {
-            echo 'checked="checked"';
-          } ?>>
-          <div class="unitButton">
-            <?php echo $unit2; ?>
-          </div>
-        </label>
-
-        <label>
-          <input type="radio" name="unit2" value="<?php echo $unit3 ?>"
-          <?php if(isset($resultUnit2) && $resultUnit2 == $unit3) {
-            echo 'checked="checked"';
-          } ?>>
-          <div class="unitButton">
-            <?php echo $unit3; ?>
-          </div>
-        </label>
-      </div>
-    </div>
-
-    <button type="submit" name="convert"><i class="fas fa-arrow-circle-right"></i> Convert</button>
-
-  </form>
-
+<!-- RESULT DISPLAY -->
   <div class="display">
 
     <?php
 
     if(!empty($result)) {
-      echo round($result, 3);
+      echo round($result, 8);
     } else {
       if(isset($error)) {
         echo $error;
@@ -113,4 +47,50 @@ if(isset($_POST['convert'])) {
     <?php endif; ?>
 
   </div>
+<!-- RESULT DISPLAY END -->
+
+<!-- UNIT SELECTOR -->
+    <div class="units">
+      <div class="unit1">
+
+      <?php for ($a=0; $a < count($unit); $a++) : ?>
+        <label>
+          <input type="radio" name="unit1" value="<?php echo $unit[$a]; ?>"
+          <?php if(isset($resultUnit1) && $resultUnit1 == $unit[$a]) {
+            echo 'checked="checked"';
+          } ?>>
+          <div class="unitButton">
+            <?php echo $unit[$a]; ?>
+          </div>
+        </label>
+      <?php endfor; ?>
+
+      </div>
+
+      <div class="unit2">
+
+      <?php for ($b=0; $b < count($unit); $b++) : ?>
+        <label>
+          <input type="radio" name="unit2" value="<?php echo $unit[$b]; ?>"
+          <?php if(isset($resultUnit2) && $resultUnit2 == $unit[$b]) {
+            echo 'checked="checked"';
+          } ?>>
+          <div class="unitButton">
+            <?php echo $unit[$b]; ?>
+          </div>
+        </label>
+      <?php endfor; ?>
+
+      </div>
+    </div>
+<!-- UNIT SELECTOR END -->
+
+<!-- SUBMIT BUTTON -->
+    <button id="submit" type="submit" name="convert"><i class="fas fa-arrow-circle-right"></i> Convert</button>
+<!-- SUBMIT BUTTON END -->
+
+  </form>
+
+
+
 </div>

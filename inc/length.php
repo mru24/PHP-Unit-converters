@@ -1,8 +1,15 @@
 <?php
 
-$unit1 = 'centimeters';
-$unit2 = 'inches';
-$unit3 = 'feet';
+$unit = array(
+  'millimetres',
+  'centimetres',
+  'metres',
+  'kilometres',
+  'inches',
+  'feet',
+  'yards',
+  'miles'
+);
 
 $function = 'length';
 

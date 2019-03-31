@@ -1,8 +1,10 @@
 <?php
 
-$unit1 = 'celsius';
-$unit2 = 'fahrenheit';
-$unit3 = 'kelvin';
+$unit = array(
+  'celsius',
+  'fahrenheit',
+  'kelvin'
+);
 
 $function = 'temperature';
 

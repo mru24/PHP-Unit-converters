@@ -11,10 +11,12 @@
 @mixin transition
   transition: .4s
 
-$panelWidth: 320px
-$panelHeight: 70px
+$panelWidth: 340px
+$panelHeight: 60px
 
 $border: 1px solid #ddd
+
+$shadow: 0 0 15px #666
 
 li
   list-style: none
@@ -38,7 +40,7 @@ body
     text-transform: capitalize
   .container
     min-height: 100vh
-    width: 70%
+    width: $panelWidth
     margin: auto
     padding: 40px 15px
     background: #f5f5f5
@@ -48,15 +50,15 @@ body
     form
       input[type=number]
         font-size: $panelHeight/1.6
-        width: $panelWidth
+        width: 100%
         height: $panelHeight
         text-align: center
       .units
-        width: $panelWidth
+        width: 100%
         clear: both
         .unit1, .unit2
           float: left
-          width: $panelWidth/2
+          width: 50%
           border: $border
           text-transform: capitalize
           text-align: center
@@ -64,36 +66,24 @@ body
             input[type=radio]
               display: none
             .unitButton
-              $height: $panelHeight
+              $height: $panelHeight/1.8
               background: #666
-              color: #ddd
-              width: $panelWidth/2
+              color: #eee
+              width: 100%
               height: $height
               line-height: $height
               text-align: center
               cursor: pointer
               @include transition
+              &:hover
+                background: #bbb
+                color: #222
+                text-transform: uppercase
             input[type=radio]:checked ~ .unitButton
                 background: red
                 color: white
-
-        input[type=radio]
-          display: none
-        .unitButton
-          $height: $panelHeight
-          background: #666
-          color: #ddd
-          width: $panelWidth/2
-          height: $height
-          line-height: $height
-          text-align: center
-          cursor: pointer
-          @include transition
-        input[type=radio]:checked ~ .unitButton
-            background: red
-            color: white
       button[type=submit]
-        width: $panelWidth
+        width: 100%
         height: $panelHeight
         line-height: $panelHeight
         font-size: $panelHeight/1.8
@@ -107,12 +97,30 @@ body
           background: #f2b44a
 
     .display
-      width: $panelWidth
+      width: 100%
       height: auto
-      min-height: $panelHeight
+      // min-height: $panelHeight
       line-height: $panelHeight
       text-align: center
       text-transform: capitalize
       font-size: $panelHeight/2.5
       background: white
       border: 1px solid #ddd
+      @include transition
+
+.nav
+  a
+    $height: 40px
+    display: block
+    width: 100%
+    height: $height
+    line-height: $height
+    @include transition
+    &:hover
+      border: $border
+      box-shadow: $shadow
+    i
+      width: 60px
+      text-align: center
+      color: red
+      font-size: 1.4em

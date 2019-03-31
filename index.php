@@ -29,6 +29,11 @@ require 'inc/conversions.php';
           include 'inc/nav.php';
           break;
 
+        case 'fuel_consumption':
+          include 'inc/fuel_consumption.php';
+          include 'inc/nav.php';
+          break;
+
         default:
         ?>
         <div class="error">
@@ -41,6 +46,7 @@ require 'inc/conversions.php';
           break;
       }
     } else {
+      echo "<h1>Unit converters</h1>";
       include 'inc/nav.php';
     } ?>
   </div>
