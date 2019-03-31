@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lato')
+@import url('https://fonts.googleapis.com/css?family=Raleway')
 
 @mixin small
   @media (max-width: 600px)
@@ -16,6 +16,13 @@ $panelHeight: 70px
 
 $border: 1px solid #ddd
 
+li
+  list-style: none
+
+a, a:active, a:visited
+  text-decoration: none
+  color: inherit
+
 *
   margin: 0
   padding: 0
@@ -23,12 +30,12 @@ $border: 1px solid #ddd
 body
   background: #ddd
   color: #333
-  font-family: 'Lato', sans-serif
+  font-family: 'Raleway', sans-serif
   h2
     width: $panelWidth
-    text-align: center
     margin-bottom: 10px
     border-bottom: $border
+    text-transform: capitalize
   .container
     min-height: 100vh
     width: 70%
@@ -44,9 +51,32 @@ body
         width: $panelWidth
         height: $panelHeight
         text-align: center
-      .radioButtons
-        display: flex
-        flex-direction: row
+      .units
+        width: $panelWidth
+        clear: both
+        .unit1, .unit2
+          float: left
+          width: $panelWidth/2
+          border: $border
+          text-transform: capitalize
+          text-align: center
+          label
+            input[type=radio]
+              display: none
+            .unitButton
+              $height: $panelHeight
+              background: #666
+              color: #ddd
+              width: $panelWidth/2
+              height: $height
+              line-height: $height
+              text-align: center
+              cursor: pointer
+              @include transition
+            input[type=radio]:checked ~ .unitButton
+                background: red
+                color: white
+
         input[type=radio]
           display: none
         .unitButton

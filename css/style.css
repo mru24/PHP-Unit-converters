@@ -1,4 +1,13 @@
-@import url("https://fonts.googleapis.com/css?family=Lato");
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+li {
+  list-style: none;
+}
+
+a, a:active, a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -8,14 +17,14 @@
 body {
   background: #ddd;
   color: #333;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 body h2 {
   width: 320px;
-  text-align: center;
   margin-bottom: 10px;
   border-bottom: 1px solid #ddd;
+  text-transform: capitalize;
 }
 
 body .container {
@@ -40,16 +49,24 @@ body .container form input[type=number] {
   text-align: center;
 }
 
-body .container form .radioButtons {
-  display: flex;
-  flex-direction: row;
+body .container form .units {
+  width: 320px;
+  clear: both;
 }
 
-body .container form .radioButtons input[type=radio] {
+body .container form .units .unit1, body .container form .units .unit2 {
+  float: left;
+  width: 160px;
+  border: 1px solid #ddd;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+body .container form .units .unit1 label input[type=radio], body .container form .units .unit2 label input[type=radio] {
   display: none;
 }
 
-body .container form .radioButtons .unitButton {
+body .container form .units .unit1 label .unitButton, body .container form .units .unit2 label .unitButton {
   background: #666;
   color: #ddd;
   width: 160px;
@@ -60,7 +77,27 @@ body .container form .radioButtons .unitButton {
   transition: .4s;
 }
 
-body .container form .radioButtons input[type=radio]:checked ~ .unitButton {
+body .container form .units .unit1 label input[type=radio]:checked ~ .unitButton, body .container form .units .unit2 label input[type=radio]:checked ~ .unitButton {
+  background: red;
+  color: white;
+}
+
+body .container form .units input[type=radio] {
+  display: none;
+}
+
+body .container form .units .unitButton {
+  background: #666;
+  color: #ddd;
+  width: 160px;
+  height: 70px;
+  line-height: 70px;
+  text-align: center;
+  cursor: pointer;
+  transition: .4s;
+}
+
+body .container form .units input[type=radio]:checked ~ .unitButton {
   background: red;
   color: white;
 }

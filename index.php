@@ -24,6 +24,11 @@ require 'inc/conversions.php';
           include 'inc/nav.php';
           break;
 
+        case 'length':
+          include 'inc/length.php';
+          include 'inc/nav.php';
+          break;
+
         default:
         ?>
         <div class="error">
@@ -40,5 +45,6 @@ require 'inc/conversions.php';
     } ?>
   </div>
 
+  <script src="js/main.js" charset="utf-8"></script>
 </body>
 </html>
