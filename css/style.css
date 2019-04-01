@@ -70,6 +70,7 @@ body .container form .selectDiv select {
   width: 70%;
   display: block;
   font-size: 20px;
+  font-weight: lighter;
 }
 
 body .container form .units {
@@ -131,13 +132,14 @@ body .container form button[type=submit]:hover {
 body .container .display {
   width: 100%;
   height: auto;
+  margin-bottom: 5px;
   line-height: 60px;
   text-align: center;
   text-transform: capitalize;
   font-size: 28.57143px;
   font-weight: bold;
   background: white;
-  border: 1px solid red;
+  border: 3px solid red;
   transition: .4s;
 }
 

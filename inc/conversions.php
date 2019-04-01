@@ -320,10 +320,6 @@ class Conversions {
             $result = $value / 1000;
             break;
 
-          case('dekagram'):
-            $result = $value / 10000;
-            break;
-
           case('kilogram'):
             $result = $value / 1000000;
             break;
@@ -340,12 +336,8 @@ class Conversions {
             $result = $value / 453592.37;
             break;
 
-          case('stoneUK'):
-            $result = $value * 0.000000157473;
-            break;
-
-          case('stoneUS'):
-            $result = $value * 0.0000001763698;
+          case('stone'):
+            $result = $value / 6350293.180;
             break;
 
           default:
@@ -356,35 +348,183 @@ class Conversions {
         break;
 
       case 'gram':
-        // code...
-        break;
+        switch ($resultUnit2) {
+          case('milligram'):
+            $result = $value * 1000;
+            break;
 
-      case 'dekagram':
-        // code...
+          case('kilogram'):
+            $result = $value / 1000;
+            break;
+
+          case('ton'):
+            $result = $value / 1000000;
+            break;
+
+          case('ounce'):
+            $result = $value / 28.345;
+            break;
+
+          case('pound'):
+            $result = $value / 453.592;
+            break;
+
+          case('stone'):
+            $result = $value / 6350.29318;
+            break;
+
+          default:
+            // code...
+            break;
+          }
         break;
 
       case 'kilogram':
-        // code...
+        switch ($resultUnit2) {
+          case('milligram'):
+            $result = $value * 1000000;
+            break;
+
+          case('gram'):
+            $result = $value * 1000;
+            break;
+
+          case('ton'):
+            $result = $value / 1000;
+            break;
+
+          case('ounce'):
+            $result = $value * 35.274;
+            break;
+
+          case('pound'):
+            $result = $value * 2.20462;
+            break;
+
+          case('stone'):
+            $result = $value / 6.35;
+            break;
+
+          default:
+            // code...
+            break;
+          }
         break;
 
       case 'ton':
-        // code...
+        switch ($resultUnit2) {
+          case('milligram'):
+            $result = $value * 1000000000;
+            break;
+
+          case('gram'):
+            $result = $value * 1000000;
+            break;
+
+          case('kilogram'):
+            $result = $value * 1000;
+            break;
+
+          case('ounce'):
+            $result = $value * 35273.96195;
+            break;
+
+          case('pound'):
+            $result = $value * 2204.6226218;
+            break;
+
+          case('stone'):
+            $result = $value * 157.47304442;
+            break;
+
+          default:
+            // code...
+            break;
+          }
         break;
 
       case 'ounce':
-        // code...
+        switch ($resultUnit2) {
+          case('milligram'):
+            $result = $value * 28349.5;
+            break;
+
+          case('gram'):
+            $result = $value * 28.349500000294;
+            break;
+
+          case('kilogram'):
+            $result = $value / 35.274;
+            break;
+
+          case('pound'):
+            $result = $value / 16;
+            break;
+
+          case('stone'):
+            $result = $value / 224;
+            break;
+
+          default:
+            // code...
+            break;
+          }
         break;
 
       case 'pound':
-        // code...
+        switch ($resultUnit2) {
+          case('milligram'):
+            $result = $value * 453592.37;
+            break;
+
+          case('gram'):
+            $result = $value * 453.592;
+            break;
+
+          case('kilogram'):
+            $result = $value / 2.205;
+            break;
+
+          case('ounce'):
+            $result = $value * 16;
+            break;
+
+          case('stone'):
+            $result = $value / 14;
+            break;
+
+          default:
+            // code...
+            break;
+          }
         break;
 
-      case 'stoneUK':
-        // code...
-        break;
+      case 'stone':
+        switch ($resultUnit2) {
+          case('milligram'):
+            $result = $value * 6350293.180;
+            break;
 
-      case 'stoneUS':
-        // code...
+          case('gram'):
+            $result = $value * 6350.29;
+            break;
+
+          case('kilogram'):
+            $result = $value * 6.35;
+            break;
+
+          case('ounce'):
+            $result = $value * 224;
+            break;
+
+          case('pound'):
+            $result = $value * 14;
+            break;
+
+          default:
+            // code...
+            break;
+          }
         break;
 
       default:

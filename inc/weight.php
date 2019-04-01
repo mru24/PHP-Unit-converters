@@ -3,13 +3,11 @@
 $unit = array(
   'milligram',
   'gram',
-  'dekagram',
   'kilogram',
   'ton',
   'ounce',
   'pound',
-  'stoneUK',
-  'stoneUS'
+  'stone'
 );
 
 $function = 'weight';
