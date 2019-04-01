@@ -20,6 +20,10 @@ body {
   font-family: 'Raleway', sans-serif;
 }
 
+body h1 {
+  text-align: center;
+}
+
 body h2 {
   width: 340px;
   margin-bottom: 10px;
@@ -47,6 +51,25 @@ body .container form input[type=number] {
   width: 100%;
   height: 60px;
   text-align: center;
+}
+
+body .container form .selectDiv {
+  margin: 15px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+body .container form .selectDiv h4 {
+  width: 30%;
+  text-align: right;
+  margin-right: 10px;
+}
+
+body .container form .selectDiv select {
+  width: 70%;
+  display: block;
+  font-size: 20px;
 }
 
 body .container form .units {
@@ -111,9 +134,10 @@ body .container .display {
   line-height: 60px;
   text-align: center;
   text-transform: capitalize;
-  font-size: 24px;
+  font-size: 28.57143px;
+  font-weight: bold;
   background: white;
-  border: 1px solid #ddd;
+  border: 1px solid red;
   transition: .4s;
 }
 
@@ -135,4 +159,20 @@ body .container .display {
   text-align: center;
   color: red;
   font-size: 1.4em;
+}
+
+.main {
+  width: 60%;
+  display: block;
+  margin: 15px auto;
+  animation: rotate 3s infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

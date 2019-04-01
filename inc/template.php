@@ -1,9 +1,10 @@
 <?php
 
 if(isset($_POST['convert'])) {
-  if(!empty($_POST['value']) && !empty($_POST['unit1']) && !empty($_POST['unit2'])) {
+  if(is_numeric($_POST['value']) && !empty($_POST['unit1']) && !empty($_POST['unit2'])) {
     // $value = preg_replace('/[^0-9]/', '', $_POST['value']);
     $value = $_POST['value'];
+    $step = $_POST['step'];
     $resultUnit1 = $_POST['unit1'];
     $resultUnit2 = $_POST['unit2'];
     if($resultUnit1 != $resultUnit2) {
@@ -21,19 +22,40 @@ if(isset($_POST['convert'])) {
   <h2>
     <?php echo $function; ?>
   </h2>
-  <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
+
+
+
+  <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
 
 <!-- INPUT FIELD -->
-    <input type="number" name="value" step="0.001" value="<?php echo $value; ?>">
+    <input type="number" name="value" step="any" value="<?php echo $value; ?>">
 <!-- INPUT FIELD END -->
+
+<!-- ROUNDING SELECT FIELD -->
+    <div class="selectDiv">
+      <h4>Round to:</h4>
+      <select name="step">
+        <option value="0" <?php if(isset($step) && $step == '0') {echo 'selected="selected"';} ?>>No decimals</option>
+        <option value="1" <?php if(isset($step) && $step == '1') {echo 'selected="selected"';} ?>>0.1</option>
+        <option value="2" <?php if(isset($step) && $step == '2') {echo 'selected="selected"';} ?>>0.01</option>
+        <option value="3" <?php if(isset($step) && $step == '3') {echo 'selected="selected"';} ?>>0.001</option>
+        <option value="4" <?php if(isset($step) && $step == '4') {echo 'selected="selected"';} ?>>0.0001</option>
+        <option value="5" <?php if(isset($step) && $step == '5') {echo 'selected="selected"';} ?>>0.00001</option>
+        <option value="6" <?php if(isset($step) && $step == '6') {echo 'selected="selected"';} ?>>0.000001</option>
+        <option value="7" <?php if(isset($step) && $step == '7') {echo 'selected="selected"';} ?>>0.0000001</option>
+        <option value="8" <?php if(isset($step) && $step == '8') {echo 'selected="selected"';} ?>>0.00000001</option>
+        <option value="9" <?php if(isset($step) && $step == '9') {echo 'selected="selected"';} ?>>0.000000001</option>
+        <option value="10" <?php if(isset($step) && $step == '10') {echo 'selected="selected"';} ?>>0.0000000001</option>
+      </select>
+    </div>
+<!-- ROUNDING SELECT FIELD END -->
 
 <!-- RESULT DISPLAY -->
   <div class="display">
-
     <?php
 
     if(!empty($result)) {
-      echo round($result, 8);
+      echo round($result, $step);
     } else {
       if(isset($error)) {
         echo $error;
@@ -42,7 +64,7 @@ if(isset($_POST['convert'])) {
 
     if(isset($resultUnit2) && (!isset($error))) : ?>
 
-      <span>&deg; <?php echo $resultUnit2; ?></span>
+      <span><?php echo $resultUnit2; ?></span>
 
     <?php endif; ?>
 
@@ -90,7 +112,5 @@ if(isset($_POST['convert'])) {
 <!-- SUBMIT BUTTON END -->
 
   </form>
-
-
 
 </div>

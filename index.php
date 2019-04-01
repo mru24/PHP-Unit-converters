@@ -6,9 +6,9 @@ require 'inc/conversions.php';
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>PHP Unit Converter | WWProject Studio</title>
+  <title>Unit Converter | WWProject Studio</title>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
   <link rel="stylesheet" href="css/style.min.css">
 </head>
@@ -16,6 +16,7 @@ require 'inc/conversions.php';
 
 
   <div class="container">
+
     <?php if(isset($_GET['id'])) {
 
       switch ($_GET['id']) {
@@ -29,12 +30,18 @@ require 'inc/conversions.php';
           include 'inc/nav.php';
           break;
 
+        case 'weight':
+          include 'inc/weight.php';
+          include 'inc/nav.php';
+          break;
+
         case 'fuel_consumption':
           include 'inc/fuel_consumption.php';
           include 'inc/nav.php';
           break;
 
         default:
+
         ?>
         <div class="error">
           <h1>Woops.. Something went wrong direction.</h1>
@@ -47,6 +54,7 @@ require 'inc/conversions.php';
       }
     } else {
       echo "<h1>Unit converters</h1>";
+      include 'inc/home.php';
       include 'inc/nav.php';
     } ?>
   </div>

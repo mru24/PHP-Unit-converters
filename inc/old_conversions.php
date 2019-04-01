@@ -8,54 +8,45 @@ class Conversions {
 
   // TEMPERATURE
   public function temperature($resultUnit1, $resultUnit2, $value) {
-    switch ($resultUnit1) {
+    $unit = array(
+      'celsius',
+      'fahrenheit',
+      'kelvin'
+    );
 
-      case 'celsius':
-        switch ($resultUnit2) {
-          case 'fahrenheit':
-            $result = ((9/5) * $value) + 32;
-            break;
-          case 'kelvin':
-            $result = $value + 273.15;
-            break;
-
-          default:
-            // code...
-            break;
+    switch (true) {
+      // CELSIUS TO FAHRENHEIT
+      case($resultUnit1 == $unit[0] && $resultUnit2 == $unit[1]):
+        $result = ((9/5) * $value) + 32;
+        return $result;
+        break;
+      // CELSIUS TO KELVIN
+      case($resultUnit1 == $unit[0] && $resultUnit2 == $unit[2]):
+        $result = $value + 273.15;
+        return $result;
+        break;
+      // FAHRENHEIT TO CELSIUS
+      case($resultUnit1 == $unit[1] && $resultUnit2 == $unit[0]):
+        $result = ($value - 32) * (5/9);
+        return $result;
+        break;
+      // FAHRENHEIT TO KELVIN
+      case($resultUnit1 == $unit[1] && $resultUnit2 == $unit[2]):
+        $result = ($value + 459.67) * (5/9);
+        return $result;
+        break;
+      // KELVIN TO CELSIUS
+      case($resultUnit1 == $unit[2] && $resultUnit2 == $unit[0]):
+        if($value >= 0) {
+          $result = $value - 273.15;
+          return $result;
         }
         break;
-
-      case 'fahrenheit':
-        switch ($resultUnit2) {
-          case 'celsius':
-            $result = ($value - 32) * (5/9);
-            break;
-          case 'kelvin':
-            $result = ($value + 459.67) * (5/9);
-            break;
-
-          default:
-            // code...
-            break;
-        }
-        break;
-
-      case 'kelvin':
-        switch ($resultUnit2) {
-          case 'celsius':
-            if($value >= 0) {
-              $result = $value - 273.15;
-            }
-            break;
-          case 'fahrenheit':
-            if($value >= 0) {
-              $result =  $value * 9/5 - 459.67;
-            }
-            break;
-
-          default:
-            // code...
-            break;
+      // KELVIN TO FAHRENHEIT
+      case($resultUnit1 == $unit[2] && $resultUnit2 == $unit[1]):
+        if($value >= 0) {
+          $result =  $value * 9/5 - 459.67;
+          return $result;
         }
         break;
 
@@ -63,7 +54,6 @@ class Conversions {
         // code...
         break;
     }
-    return $result;
   }
 
   // LENGTH
@@ -376,146 +366,118 @@ class Conversions {
 
   // WEIGHT
   public function weight($resultUnit1, $resultUnit2, $value) {
+    $unit = array(
+      'milligram',
+      'gram',
+      'dekagram',
+      'kilogram',
+      'ton',
+      'ounce',
+      'pound',
+      'stoneUK',
+      'stoneUS'
+    );
 
-    switch ($resultUnit1) {
-      case 'milligram':
-        switch ($resultUnit2) {
-          case('gram'):
-            $result = $value / 1000;
-            break;
-
-          case('dekagram'):
-            $result = $value / 10000;
-            break;
-
-          case('kilogram'):
-            $result = $value / 1000000;
-            break;
-
-          case('ton'):
-            $result = $value / 1000000000;
-            break;
-
-          case('ounce'):
-            $result = $value * 0.000035274;
-            break;
-
-          case('pound'):
-            $result = $value * 0.0000022046;
-            break;
-
-          case('stoneUK'):
-            $result = $value * 0.000000157473;
-            break;
-
-          case('stoneUS'):
-            $result = $value * 0.0000001763698;
-            break;
-
-          default:
-            // code...
-            break;
-          }
-
+    switch (true) {
+      // MILLIGRAM TO GRAM
+      case($resultUnit1 == $unit[0] && $resultUnit2 == $unit[1]):
+        $result = $value / 1000;
+        return $result;
+        break;
+      // MILLIGRAM TO DEKAGRAM
+      case($resultUnit1 == $unit[0] && $resultUnit2 == $unit[2]):
+        $result = $value / 10000;
+        return $result;
+        break;
+      // // MILLIGRAM TO KILOGRAM
+      case($resultUnit1 == $unit[0] && $resultUnit2 == $unit[3]):
+        $result = $value / 100000;
+        return $result;
+        break;
+      // // MILLIGRAM TO TON
+      case($resultUnit1 == $unit[0] && $resultUnit2 == $unit[4]):
+        $result = $value / 100000000;
+        return $result;
+        break;
+      // // MILLIGRAM TO OUNCE
+      case($resultUnit1 == $unit[0] && $resultUnit2 == $unit[5]):
+        $result = $value * 0.000035274;
+        return $result;
+        break;
+      // // MILLIGRAM TO POUND
+      case($resultUnit1 == $unit[0] && $resultUnit2 == $unit[6]):
+        $result = $value * 0.0000022046;
+        return $result;
+        break;
+      // // MILLIGRAM TO STONE UK
+      case($resultUnit1 == $unit[0] && $resultUnit2 == $unit[7]):
+        $result = $value * 0.000000157473;
+        return $result;
+        break;
+      // // MILLIGRAM TO STONE US
+      case($resultUnit1 == $unit[0] && $resultUnit2 == $unit[8]):
+        $result = $value * 0.0000001763698;
+        return $result;
         break;
 
-      case 'gram':
-        // code...
-        break;
 
-      case 'dekagram':
-        // code...
-        break;
-
-      case 'kilogram':
-        // code...
-        break;
-
-      case 'ton':
-        // code...
-        break;
-
-      case 'ounce':
-        // code...
-        break;
-
-      case 'pound':
-        // code...
-        break;
-
-      case 'stoneUK':
-        // code...
-        break;
-
-      case 'stoneUS':
-        // code...
-        break;
 
       default:
         // code...
         break;
     }
-
-    return $result;
   }
 
   // FUEL CONSUMPTION
   public function fuelConsumption($resultUnit1, $resultUnit2, $value) {
+    $unit = array(
+      'l/100km',
+      'mpgUK',
+      'mpgUS'
+    );
 
-    switch ($resultUnit1) {
-      case 'l/100km':
-        switch ($resultUnit2) {
-          case 'mpgUK':
-            $result = 282.48 / $value;
-            break;
+    switch (true) {
 
-          case 'mpgUS':
-            $result = 235.21 / $value;
-            break;
-
-          default:
-            // code...
-            break;
-        }
+      // IMPERIAL (UK) MPG TO L/100KM
+      case($resultUnit1 == $unit[1] && $resultUnit2 == $unit[0]):
+        $result = 282.48 / $value;
+        return $result;
         break;
 
-      case 'mpgUK':
-        switch ($resultUnit2) {
-          case 'l/100km':
-            $result = 282.48 / $value;
-            break;
-
-          case 'mpgUS':
-            $result = 0.83 * $value;
-            break;
-
-          default:
-            // code...
-            break;
-        }
+      // US MPG TO L/100KM
+      case($resultUnit1 == $unit[2] && $resultUnit2 == $unit[0]):
+        $result = 235.21 / $value;
+        return $result;
         break;
 
-      case 'mpgUS':
-        switch ($resultUnit2) {
-          case 'l/100km':
-            $result = 235.21 / $value;
-            break;
+      //  L/100KM TO US MPG
+      case($resultUnit1 == $unit[0] && $resultUnit2 == $unit[1]):
+        $result = 282.48 / $value;
+        return $result;
+        break;
 
-          case 'mpgUK':
-            $result = 1.2 * $value;
-            break;
+      // L/100KM TO IMPERIAL (UK) MPG
+      case($resultUnit1 == $unit[0] && $resultUnit2 == $unit[2]):
+        $result = 235.21 / $value;
+        return $result;
+        break;
 
-          default:
-            // code...
-            break;
-        }
+      // IMPERIAL (UK) MPG TO US MPG
+      case($resultUnit1 == $unit[1] && $resultUnit2 == $unit[2]):
+        $result = 0.83 * $value;
+        return $result;
+        break;
+
+      // US MPG TO IMPERIAL (UK) MPG
+      case($resultUnit1 == $unit[2] && $resultUnit2 == $unit[1]):
+        $result = 1.2 * $value;
+        return $result;
         break;
 
       default:
         // code...
         break;
     }
-    return $result;
   }
 }
 

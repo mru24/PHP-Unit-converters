@@ -33,6 +33,8 @@ body
   background: #ddd
   color: #333
   font-family: 'Raleway', sans-serif
+  h1
+    text-align: center
   h2
     width: $panelWidth
     margin-bottom: 10px
@@ -53,6 +55,19 @@ body
         width: 100%
         height: $panelHeight
         text-align: center
+      .selectDiv
+        margin: 15px 0
+        display: flex
+        flex-direction: row
+        align-items: center
+        h4
+          width: 30%
+          text-align: right
+          margin-right: 10px
+        select
+          width: 70%
+          display: block
+          font-size: $panelHeight/3
       .units
         width: 100%
         clear: both
@@ -99,13 +114,13 @@ body
     .display
       width: 100%
       height: auto
-      // min-height: $panelHeight
       line-height: $panelHeight
       text-align: center
       text-transform: capitalize
-      font-size: $panelHeight/2.5
+      font-size: $panelHeight/2.1
+      font-weight: bold
       background: white
-      border: 1px solid #ddd
+      border: 1px solid red
       @include transition
 
 .nav
@@ -124,3 +139,15 @@ body
       text-align: center
       color: red
       font-size: 1.4em
+
+.main
+  width: 60%
+  display: block
+  margin: 15px auto
+  animation: rotate 3s infinite
+
+@keyframes rotate
+  from
+    transform: rotate(0deg)
+  to
+    transform: rotate(360deg)
